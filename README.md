@@ -7,20 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## How to Setup Locally
+## How to Set Up Locally
 
-### Pre-Requisite 
+### Prerequisites
 
-1. PHP version of 8.1 or higher
+1. PHP version 8.1 or higher
 2. Composer
-2. Node version 18 or higher
+3. Node.js version 18 or higher
 
-### How To
+### Steps
 
-1. Install all dependencies: `npm install` and `composer install`
-2. Make a copy of .env.example and create a `.env` file and update value for ACORN variables
-3. On a terminal, run react app: `npm run dev`
-4. On a separate terminal, run laravel server: `php artisan serve`
-5. App should start on `http://127.0.0.1:8000`
-
-
+1. Install all dependencies by running: `npm install` and `composer install`.
+2. Copy the `.env.example` file and rename it to `.env`. Then, update the values for the ACORN variables.
+3. In one terminal, run the React app using: `npm run dev`.
+4. In another terminal, start the Laravel server using: `php artisan serve`.
+5. The app should now be accessible at: `http://127.0.0.1:8000`.
