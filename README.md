@@ -19,6 +19,17 @@
 
 1. Install all dependencies by running: `npm install` and `composer install`.
 2. Copy the `.env.example` file and rename it to `.env`. Then, update the values for the ACORN variables.
-3. In one terminal, run the React app using: `npm run dev`.
-4. In another terminal, start the Laravel server using: `php artisan serve`.
+3. Run `php artisan key:generate`
+4. In one terminal, run the React app using: `npm run dev`.
+5. In another terminal, start the Laravel server using: `php artisan serve`.
+6. The app should now be accessible at: `http://127.0.0.1:8000`.
+
+### Run it inside docker
+
+1. Make sure you have docker running
+2. Copy the `.env.example` file and rename it to `.env`. Then, update the values for the ACORN variables.
+3. Run `docker compose build`
+4. Run `docker compose up -d`
 5. The app should now be accessible at: `http://127.0.0.1:8000`.
+
+
