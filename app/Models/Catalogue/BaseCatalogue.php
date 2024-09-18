@@ -4,23 +4,26 @@ namespace App\Models\Catalogue;
 
 abstract class BaseCatalogue
 {
-    protected string $fullname;
-    protected string $summary;
+    protected int $id;
+    protected string $title;
+    protected string $description;
     protected string $imageUrl;
 
     public function __construct(array $data)
     {
-        $this->fullname = $data['fullname'];
-        $this->summary = $data['summarytext'];
+        $this->title = $data['fullname'];
+        $this->description = $data['summarytext'];
         $this->imageUrl = $data['imageurl'];
+        $this->id = $data['contentid'];
     }
 
     public function toArray(): array
     {
         return [
-            'fullname' => $this->fullname,
-            'summary' => $this->summary,
-            'imageurl' => $this->imageUrl,
+            'id' => $this->id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'imageURL' => $this->imageUrl,
         ];
     }
 }
