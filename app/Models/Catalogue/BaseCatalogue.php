@@ -10,9 +10,9 @@ abstract class BaseCatalogue
 
     public function __construct(array $data)
     {
-        $this->fullname = $data['fullname'] ?? '';
-        $this->summary = $data['summarytext'] ?? '';
-        $this->imageUrl = $data['imageurl'] ?? null;
+        $this->fullname = $data['fullname'];
+        $this->summary = $data['summarytext'];
+        $this->imageUrl = $data['imageurl'];
     }
 
     public function toArray(): array
