@@ -34,5 +34,11 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'acorn_api' => [
+        'base_url' => env('EXTERNAL_CATALOGUE_BASE_URL'),
+        'tenancy_id' => env('EXTERNAL_CATALOGUE_TENANT_ID', 3),
+        'api_key' => env('EXTERNAL_CATALOGUE_API_KEY'),
+        'per_page' => env('EXTERNAL_CATALOGUE_PER_PAGE', 8),
+        'external_catalogue_api_path' => '/local/acorn_coursemanagement/index.php/api/1.1/external_catalogue/',
+    ],
 ];
