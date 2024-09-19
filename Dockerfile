@@ -44,6 +44,9 @@ COPY --from=build /app/public /var/www/html/public
 # Set the working directory
 WORKDIR /var/www/html
 
+# Check if /var/www/html/.env exists, if not then copy .env.example to .env
+RUN if [ ! -f /var/www/html/.env ]; then cp /var/www/html/.env.example /var/www/html/.env; fi
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -53,5 +56,7 @@ RUN composer install
 # Generate application key
 RUN php artisan key:generate
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Ensure the SQLite file exists and set proper permissions
+RUN touch /var/www/html/database/database.sqlite
+RUN chown -R www-data:www-data /var/www/html/database
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
