@@ -5,5 +5,7 @@ services:
     build:
       target: web
       context: .
+    env_file:
+        .env
     ports:
       - "8000:80"

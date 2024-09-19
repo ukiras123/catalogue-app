@@ -44,6 +44,9 @@ COPY --from=build /app/public /var/www/html/public
 # Set the working directory
 WORKDIR /var/www/html
 
+# Check if /var/www/html/.env exists, if not then copy .env.example to .env
+RUN if [ ! -f /var/www/html/.env ]; then cp /var/www/html/.env.example /var/www/html/.env; fi
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
