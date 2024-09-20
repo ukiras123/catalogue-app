@@ -47,6 +47,11 @@ WORKDIR /var/www/html
 # Check if /var/www/html/.env exists, if not then copy .env.example to .env
 RUN if [ ! -f /var/www/html/.env ]; then cp /var/www/html/.env.example /var/www/html/.env; fi
 
+# Ensure the SQLite file exists and set proper permissions
+RUN touch /var/www/html/database/database.sqlite
+RUN chown -R www-data:www-data /var/www/html/database /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/database /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -55,8 +60,3 @@ RUN composer install
 
 # Generate application key
 RUN php artisan key:generate
-
-# Ensure the SQLite file exists and set proper permissions
-RUN touch /var/www/html/database/database.sqlite
-RUN chown -R www-data:www-data /var/www/html/database /var/www/html/storage /var/www/html/bootstrap/cache
-RUN chmod -R 775 /var/www/html/database /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
