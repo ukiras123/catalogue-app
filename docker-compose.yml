@@ -8,3 +8,14 @@ services:
             - .env
         ports:
             - "8000:80"
+        restart: unless-stopped
+    nginx:
+        restart: unless-stopped
+        container_name: nginx
+        image: nginx
+        ports:
+        - "80:80"
+        volumes:
+        - ./nginx.conf:/etc/nginx/nginx.conf
+        depends_on:
+        - web
