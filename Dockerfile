@@ -58,5 +58,5 @@ RUN php artisan key:generate
 
 # Ensure the SQLite file exists and set proper permissions
 RUN touch /var/www/html/database/database.sqlite
-RUN chown -R www-data:www-data /var/www/html/database
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
+RUN chown -R www-data:www-data /var/www/html/database /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/database /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
